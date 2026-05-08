@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.API\\PetshopApi.API.csproj": {}
+    "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.API\\PetshopApi.API.csproj": {}
   },
   "projects": {
-    "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.API\\PetshopApi.API.csproj": {
+    "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.API\\PetshopApi.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.API\\PetshopApi.API.csproj",
+        "projectUniqueName": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.API\\PetshopApi.API.csproj",
         "projectName": "PetshopApi.API",
-        "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.API\\PetshopApi.API.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.API\\obj\\",
+        "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.API\\PetshopApi.API.csproj",
+        "packagesPath": "C:\\Users\\levi.santos\\.nuget\\packages\\",
+        "outputPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\levi.santos\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -26,11 +26,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\PetshopApi.Application.csproj": {
-                "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\PetshopApi.Application.csproj"
+              "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\PetshopApi.Application.csproj": {
+                "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\PetshopApi.Application.csproj"
               },
-              "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj": {
-                "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj"
+              "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj": {
+                "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj"
               }
             }
           }
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Users\\levi.santos\\.dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -511,17 +511,17 @@
         }
       }
     },
-    "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\PetshopApi.Application.csproj": {
+    "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\PetshopApi.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\PetshopApi.Application.csproj",
+        "projectUniqueName": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\PetshopApi.Application.csproj",
         "projectName": "PetshopApi.Application",
-        "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\PetshopApi.Application.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\obj\\",
+        "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\PetshopApi.Application.csproj",
+        "packagesPath": "C:\\Users\\levi.santos\\.nuget\\packages\\",
+        "outputPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\levi.santos\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -533,8 +533,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\PetshopApi.Domain.csproj": {
-                "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\PetshopApi.Domain.csproj"
+              "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\PetshopApi.Domain.csproj": {
+                "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\PetshopApi.Domain.csproj"
               }
             }
           }
@@ -570,7 +570,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Users\\levi.santos\\.dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -848,17 +848,17 @@
         }
       }
     },
-    "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\PetshopApi.Domain.csproj": {
+    "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\PetshopApi.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\PetshopApi.Domain.csproj",
+        "projectUniqueName": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\PetshopApi.Domain.csproj",
         "projectName": "PetshopApi.Domain",
-        "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\PetshopApi.Domain.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\obj\\",
+        "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\PetshopApi.Domain.csproj",
+        "packagesPath": "C:\\Users\\levi.santos\\.nuget\\packages\\",
+        "outputPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\levi.santos\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -903,7 +903,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Users\\levi.santos\\.dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -1181,17 +1181,17 @@
         }
       }
     },
-    "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj": {
+    "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj",
         "projectName": "PetshopApi.Infrastructure",
-        "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Infrastructure\\obj\\",
+        "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Infrastructure\\PetshopApi.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\levi.santos\\.nuget\\packages\\",
+        "outputPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\levi.santos\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -1203,11 +1203,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\PetshopApi.Application.csproj": {
-                "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Application\\PetshopApi.Application.csproj"
+              "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\PetshopApi.Application.csproj": {
+                "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Application\\PetshopApi.Application.csproj"
               },
-              "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\PetshopApi.Domain.csproj": {
-                "projectPath": "C:\\Challenge-2TDSPG-C#\\Clyvo-Pet\\PetshopApi.Domain\\PetshopApi.Domain.csproj"
+              "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\PetshopApi.Domain.csproj": {
+                "projectPath": "C:\\Challenge-1Semestre-2TDSPG\\clyvo-petshop-dotnet\\PetshopApi.Domain\\PetshopApi.Domain.csproj"
               }
             }
           }
@@ -1259,7 +1259,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Users\\levi.santos\\.dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

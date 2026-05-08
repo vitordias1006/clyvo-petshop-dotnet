@@ -19,13 +19,13 @@ public class Program
 
         // Injeção de dependência — registrar todos os repositórios
         builder.Services.AddScoped<IUserRepository, UserRepository>();
-        // builder.Services.AddScoped<IPetRepository, PetRepository>();
-        // builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-        // builder.Services.AddScoped<IProductRepository, ProductRepository>();
-        // builder.Services.AddScoped<ISignatureRepository, SignatureRepository>();
-        // builder.Services.AddScoped<IPlanDataRepository, PlanDataRepository>();
-        // builder.Services.AddScoped<IMedicalFileRepository, MedicalFileRepository>();
-        // builder.Services.AddScoped<IQueryRepository, QueryRepository>();
+        builder.Services.AddScoped<IPetRepository, PetRepository>();
+        builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
+        builder.Services.AddScoped<ISignatureRepository, SignatureRepository>();
+        builder.Services.AddScoped<IPlanDataRepository, PlanDataRepository>();
+        builder.Services.AddScoped<IMedicalFileRepository, MedicalFileRepository>();
+        builder.Services.AddScoped<IQueryRepository, QueryRepository>();
 
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();

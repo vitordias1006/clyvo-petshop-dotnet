@@ -4,7 +4,7 @@ using PetshopApi.Infrastructure.Persistence;
 
 namespace PetshopApi.Infrastructure;
 
-public class UserRepository(PetShopContext context) : IUserRepository
+public sealed class UserRepository(PetShopContext context) : IUserRepository
 {
     public IReadOnlyList<UserResponse> GetAll()
     {
