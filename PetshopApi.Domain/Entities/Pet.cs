@@ -26,4 +26,33 @@ public class Pet : BaseEntity
         PhotoUrl = photoUrl;
         UserId = userId;
     }
+    
+    public void Update(string name, string species, string race, DateTime birthDate, decimal weight, string photoUrl, Guid userId)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new InvalidOperationException("O nome do pet é obrigatório");
+
+        if (string.IsNullOrWhiteSpace(species))
+            throw new InvalidOperationException("A espécie é obrigatória");
+
+        if (string.IsNullOrWhiteSpace(race))
+            throw new InvalidOperationException("A raça é obrigatória");
+
+        if (weight <= 0)
+            throw new InvalidOperationException("O peso deve ser maior que zero");
+
+        if (string.IsNullOrWhiteSpace(photoUrl))
+            throw new InvalidOperationException("A URL da foto é obrigatória");
+
+        if (userId == Guid.Empty)
+            throw new InvalidOperationException("O usuário é obrigatório");
+
+        Name = name;
+        Species = species;
+        Race = race;
+        BirthDate = birthDate;
+        Weight = weight;
+        PhotoUrl = photoUrl;
+        UserId = userId;
+    }
 }

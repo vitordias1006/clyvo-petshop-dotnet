@@ -10,4 +10,5 @@ public interface IProductRepository
     ProductResponse? GetById(Guid id);
     ProductResponse Create(ProductRequest r); 
     bool ExistsById(Guid id); bool Delete(Guid id);
+    ProductResponse Update(Guid id, ProductRequest request);
 }

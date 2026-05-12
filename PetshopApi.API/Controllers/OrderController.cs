@@ -15,7 +15,6 @@ public class OrderController : ControllerBase
         _orderRepository = orderRepository;
     }
 
-    // GET api/order
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class OrderController : ControllerBase
         return Ok(orders);
     }
 
-    // GET api/order/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class OrderController : ControllerBase
         return Ok(order);
     }
 
-    // GET api/order/user/{userId}
     [HttpGet("user/{userId:guid}")]
     public IActionResult GetByUserId(Guid userId)
     {
@@ -41,7 +38,6 @@ public class OrderController : ControllerBase
         return Ok(orders);
     }
 
-    // GET api/order/status/{status}
     [HttpGet("status/{status}")]
     public IActionResult GetByStatus(string status)
     {
@@ -49,7 +45,6 @@ public class OrderController : ControllerBase
         return Ok(orders);
     }
 
-    // POST api/order
     [HttpPost]
     public IActionResult Create([FromBody] OrderRequest request)
     {
@@ -64,12 +59,29 @@ public class OrderController : ControllerBase
         }
     }
 
-    // DELETE api/order/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_orderRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] OrderRequest request)
+    {
+        try
+        {
+            var order = _orderRepository.Update(id, request);
+            return Ok(order);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

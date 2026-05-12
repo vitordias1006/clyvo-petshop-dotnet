@@ -66,4 +66,19 @@ public sealed class OrderRepository(PetShopContext context) : IOrderRepository
         context.SaveChanges();
         return true;
     }
+    
+    public OrderResponse Update(Guid id, OrderRequest request)
+    {
+        var order = context.Orders.FirstOrDefault(o => o.Id == id);
+        if (order is null)
+            throw new KeyNotFoundException("Pedido não encontrado");
+
+        if (string.IsNullOrWhiteSpace(request.DeliveryAddress))
+            throw new InvalidOperationException("O endereço de entrega é obrigatório");
+
+        order.Update(request.Status, request.TotalPrice, request.DeliveryAddress, request.UserId, request.DiscountApplied, request.CrateDate);
+        context.SaveChanges();
+
+        return OrderResponse.FromDomain(order);
+    }
 }

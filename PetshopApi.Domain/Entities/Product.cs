@@ -22,4 +22,36 @@ public class Product : BaseEntity
         ImgUrl = imgUrl;
         Active = active;
     }
+    
+    public void Update(string name, string description, string category, string targetSpecies, decimal price, string imgUrl, string active)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new InvalidOperationException("O nome do produto é obrigatório");
+
+        if (string.IsNullOrWhiteSpace(description))
+            throw new InvalidOperationException("A descrição é obrigatória");
+
+        if (string.IsNullOrWhiteSpace(category))
+            throw new InvalidOperationException("A categoria é obrigatória");
+
+        if (string.IsNullOrWhiteSpace(targetSpecies))
+            throw new InvalidOperationException("A espécie alvo é obrigatória");
+
+        if (price <= 0)
+            throw new InvalidOperationException("O preço deve ser maior que zero");
+
+        if (string.IsNullOrWhiteSpace(imgUrl))
+            throw new InvalidOperationException("A URL da imagem é obrigatória");
+
+        if (active != "S" && active != "N")
+            throw new InvalidOperationException("O campo active deve ser S ou N");
+
+        Name = name;
+        Description = description;
+        Category = category;
+        TargetSpecies = targetSpecies;
+        Price = price;
+        ImgUrl = imgUrl;
+        Active = active;
+    }
 }

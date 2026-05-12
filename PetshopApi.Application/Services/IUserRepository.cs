@@ -9,4 +9,5 @@ public interface IUserRepository
     UserResponse Create(UserRequest request);
     bool ExistsById(Guid id);
     bool Delete(Guid id);
+    UserResponse Update(Guid id, UserRequest request);
 }

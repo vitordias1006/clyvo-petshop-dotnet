@@ -15,7 +15,6 @@ public class ItemOrderController : ControllerBase
         _itemOrderRepository = itemOrderRepository;
     }
 
-    // GET api/itemorder
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class ItemOrderController : ControllerBase
         return Ok(items);
     }
 
-    // GET api/itemorder/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class ItemOrderController : ControllerBase
         return Ok(item);
     }
 
-    // GET api/itemorder/order/{orderId}
     [HttpGet("order/{orderId:guid}")]
     public IActionResult GetByOrderId(Guid orderId)
     {
@@ -41,7 +38,6 @@ public class ItemOrderController : ControllerBase
         return Ok(items);
     }
 
-    // POST api/itemorder
     [HttpPost]
     public IActionResult Create([FromBody] ItemOrderRequest request)
     {
@@ -56,12 +52,29 @@ public class ItemOrderController : ControllerBase
         }
     }
 
-    // DELETE api/itemorder/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_itemOrderRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] ItemOrderRequest request)
+    {
+        try
+        {
+            var item = _itemOrderRepository.Update(id, request);
+            return Ok(item);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

@@ -15,7 +15,6 @@ public class MedicalFileController : ControllerBase
         _medicalFileRepository = medicalFileRepository;
     }
 
-    // GET api/medicalfile
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class MedicalFileController : ControllerBase
         return Ok(medicalFiles);
     }
 
-    // GET api/medicalfile/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class MedicalFileController : ControllerBase
         return Ok(medicalFile);
     }
 
-    // GET api/medicalfile/pet/{petId}
     [HttpGet("pet/{petId:guid}")]
     public IActionResult GetByPetId(Guid petId)
     {
@@ -43,7 +40,6 @@ public class MedicalFileController : ControllerBase
         return Ok(medicalFile);
     }
 
-    // POST api/medicalfile
     [HttpPost]
     public IActionResult Create([FromBody] MedicalFileRequest request)
     {
@@ -58,12 +54,29 @@ public class MedicalFileController : ControllerBase
         }
     }
 
-    // DELETE api/medicalfile/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_medicalFileRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] MedicalFileRequest request)
+    {
+        try
+        {
+            var medicalFile = _medicalFileRepository.Update(id, request);
+            return Ok(medicalFile);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

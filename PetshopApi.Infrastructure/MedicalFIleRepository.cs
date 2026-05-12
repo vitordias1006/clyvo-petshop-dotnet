@@ -55,4 +55,19 @@ public sealed class MedicalFileRepository(PetShopContext context) : IMedicalFile
         context.SaveChanges();
         return true;
     }
+    
+    public MedicalFileResponse Update(Guid id, MedicalFileRequest request)
+    {
+        var medicalFile = context.MedicalFiles.FirstOrDefault(m => m.Id == id);
+        if (medicalFile is null)
+            throw new KeyNotFoundException("Prontuário não encontrado");
+
+        if (string.IsNullOrWhiteSpace(request.Allergies))
+            throw new InvalidOperationException("O campo de alergias é obrigatório");
+
+        medicalFile.Update(request.Allergies, request.ChronicDiseases, request.Medicines, request.LastVaccine, request.NextVaccine, request.PetId, request.Obs);
+        context.SaveChanges();
+
+        return MedicalFileResponse.FromDomain(medicalFile);
+    }
 }

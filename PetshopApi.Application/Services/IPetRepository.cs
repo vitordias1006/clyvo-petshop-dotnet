@@ -10,4 +10,6 @@ public interface IPetRepository
     PetResponse Create(PetRequest r); 
     bool ExistsById(Guid id);
     bool Delete(Guid id);
+    PetResponse Update(Guid id, PetRequest request);
+
 }

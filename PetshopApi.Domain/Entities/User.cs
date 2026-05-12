@@ -22,4 +22,25 @@ public class User : BaseEntity
         Password = password;
         CreateDate = createDate;
     }
+    
+    public void Update(string name, string email, string telephone, string password, DateTime createDate)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new InvalidOperationException("O nome do usuário é obrigatório");
+
+        if (string.IsNullOrWhiteSpace(email))
+            throw new InvalidOperationException("O email é obrigatório");
+
+        if (string.IsNullOrWhiteSpace(telephone))
+            throw new InvalidOperationException("O telefone é obrigatório");
+
+        if (string.IsNullOrWhiteSpace(password))
+            throw new InvalidOperationException("A senha é obrigatória");
+
+        Name = name;
+        Email = email;
+        Telephone = telephone;
+        Password = password;
+        CreateDate = createDate;
+    }
 }

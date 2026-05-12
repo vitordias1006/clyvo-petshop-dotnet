@@ -50,4 +50,19 @@ public sealed class UserRepository(PetShopContext context) : IUserRepository
         context.SaveChanges();
         return true;
     }
+    
+    public UserResponse Update(Guid id, UserRequest request)
+    {
+        var user = context.Users.FirstOrDefault(u => u.Id == id);
+        if (user is null)
+            throw new KeyNotFoundException("Usuário não encontrado");
+
+        if (string.IsNullOrWhiteSpace(request.Name))
+            throw new InvalidOperationException("O nome do usuário é obrigatório");
+
+        user.Update(request.Name, request.Email, request.Telephone, request.Password, request.CreateDate);
+        context.SaveChanges();
+
+        return UserResponse.FromDomain(user);
+    }
 }

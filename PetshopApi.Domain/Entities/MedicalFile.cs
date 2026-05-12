@@ -23,4 +23,30 @@ public class MedicalFile : BaseEntity
         PetId = petId;
         Obs = obs;
     }
+    
+    public void Update(string allergies, string chronicDiseases, string medicines, DateTime lastVaccine, DateTime nextVaccine, Guid petId, string? obs)
+    {
+        if (string.IsNullOrWhiteSpace(allergies))
+            throw new InvalidOperationException("O campo de alergias é obrigatório");
+
+        if (string.IsNullOrWhiteSpace(chronicDiseases))
+            throw new InvalidOperationException("O campo de doenças crônicas é obrigatório");
+
+        if (string.IsNullOrWhiteSpace(medicines))
+            throw new InvalidOperationException("O campo de medicamentos é obrigatório");
+
+        if (nextVaccine <= lastVaccine)
+            throw new InvalidOperationException("A próxima vacina deve ser posterior à última");
+
+        if (petId == Guid.Empty)
+            throw new InvalidOperationException("O pet é obrigatório");
+
+        Allergies = allergies;
+        ChronicDiseases = chronicDiseases;
+        Medicines = medicines;
+        LastVaccine = lastVaccine;
+        NextVaccine = nextVaccine;
+        PetId = petId;
+        Obs = obs;
+    }
 }

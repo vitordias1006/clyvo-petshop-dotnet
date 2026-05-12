@@ -10,4 +10,5 @@ public interface IQueryRepository
     QueryResponse? GetById(Guid id);
     QueryResponse Create(QueryRequest r);
     bool ExistsById(Guid id); bool Delete(Guid id);
+    QueryResponse Update(Guid id, QueryRequest request);
 }

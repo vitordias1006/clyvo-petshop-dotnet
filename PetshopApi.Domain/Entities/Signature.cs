@@ -19,4 +19,21 @@ public class Signature  : BaseEntity
         EndDate = endDate;
         UserId = userId;
     }
+    
+    public void Update(string status, DateTime startDate, DateTime endDate, Guid userId)
+    {
+        if (string.IsNullOrWhiteSpace(status))
+            throw new InvalidOperationException("O status é obrigatório");
+
+        if (endDate <= startDate)
+            throw new InvalidOperationException("A data de fim deve ser maior que a data de início");
+
+        if (userId == Guid.Empty)
+            throw new InvalidOperationException("O usuário é obrigatório");
+
+        Status = status;
+        StartDate = startDate;
+        EndDate = endDate;
+        UserId = userId;
+    }
 }

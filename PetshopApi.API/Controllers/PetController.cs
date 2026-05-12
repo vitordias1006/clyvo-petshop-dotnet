@@ -15,7 +15,6 @@ public class PetController : ControllerBase
         _petRepository = petRepository;
     }
 
-    // GET api/pet
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class PetController : ControllerBase
         return Ok(pets);
     }
 
-    // GET api/pet/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class PetController : ControllerBase
         return Ok(pet);
     }
 
-    // GET api/pet/user/{userId}
     [HttpGet("user/{userId:guid}")]
     public IActionResult GetByUserId(Guid userId)
     {
@@ -41,7 +38,6 @@ public class PetController : ControllerBase
         return Ok(pets);
     }
 
-    // POST api/pet
     [HttpPost]
     public IActionResult Create([FromBody] PetRequest request)
     {
@@ -56,12 +52,29 @@ public class PetController : ControllerBase
         }
     }
 
-    // DELETE api/pet/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_petRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] PetRequest request)
+    {
+        try
+        {
+            var pet = _petRepository.Update(id, request);
+            return Ok(pet);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

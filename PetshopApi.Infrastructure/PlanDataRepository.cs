@@ -66,4 +66,19 @@ public sealed class PlanDataRepository(PetShopContext context) : IPlanDataReposi
         context.SaveChanges();
         return true;
     }
+    
+    public PlanDataResponse Update(Guid id, PlanDataRequest request)
+    {
+        var plan = context.PlanDatas.FirstOrDefault(p => p.Id == id);
+        if (plan is null)
+            throw new KeyNotFoundException("Plano não encontrado");
+
+        if (string.IsNullOrWhiteSpace(request.Name))
+            throw new InvalidOperationException("O nome do plano é obrigatório");
+
+        plan.Update(request.Name, request.MonthlyPrice, request.Benefits, request.Active, request.SignatureId, request.ConsultationsMonth, request.MktDiscount);
+        context.SaveChanges();
+
+        return PlanDataResponse.FromDomain(plan);
+    }
 }

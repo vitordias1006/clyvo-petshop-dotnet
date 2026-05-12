@@ -9,4 +9,5 @@ public interface ISignatureRepository
     SignatureResponse? GetById(Guid id);
     SignatureResponse Create(SignatureRequest r);
     bool ExistsById(Guid id); bool Delete(Guid id);
+    SignatureResponse Update(Guid id, SignatureRequest request);
 }

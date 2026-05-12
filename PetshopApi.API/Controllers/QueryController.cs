@@ -15,7 +15,6 @@ public class QueryController : ControllerBase
         _queryRepository = queryRepository;
     }
 
-    // GET api/query
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class QueryController : ControllerBase
         return Ok(queries);
     }
 
-    // GET api/query/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class QueryController : ControllerBase
         return Ok(query);
     }
 
-    // GET api/query/pet/{petId}
     [HttpGet("pet/{petId:guid}")]
     public IActionResult GetByPetId(Guid petId)
     {
@@ -41,7 +38,6 @@ public class QueryController : ControllerBase
         return Ok(queries);
     }
 
-    // GET api/query/status/{status}
     [HttpGet("status/{status}")]
     public IActionResult GetByStatus(string status)
     {
@@ -49,7 +45,6 @@ public class QueryController : ControllerBase
         return Ok(queries);
     }
 
-    // POST api/query
     [HttpPost]
     public IActionResult Create([FromBody] QueryRequest request)
     {
@@ -64,12 +59,29 @@ public class QueryController : ControllerBase
         }
     }
 
-    // DELETE api/query/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_queryRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] QueryRequest request)
+    {
+        try
+        {
+            var query = _queryRepository.Update(id, request);
+            return Ok(query);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

@@ -57,4 +57,19 @@ public sealed class ItemOrderRepository(PetShopContext context) : IItemOrderRepo
         context.SaveChanges();
         return true;
     }
+    
+    public ItemOrderResponse Update(Guid id, ItemOrderRequest request)
+    {
+        var item = context.ItemOrders.FirstOrDefault(i => i.Id == id);
+        if (item is null)
+            throw new KeyNotFoundException("Item do pedido não encontrado");
+
+        if (request.Quantity <= 0)
+            throw new InvalidOperationException("A quantidade deve ser maior que zero");
+
+        item.Update(request.Quantity, request.UnitPrice, request.OrderId, request.ProductId);
+        context.SaveChanges();
+
+        return ItemOrderResponse.FromDomain(item);
+    }
 }

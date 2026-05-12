@@ -10,4 +10,5 @@ public interface IOrderRepository
     OrderResponse? GetById(Guid id);
     OrderResponse Create(OrderRequest r);
     bool ExistsById(Guid id); bool Delete(Guid id);
+    OrderResponse Update(Guid id, OrderRequest request);
 }

@@ -66,4 +66,19 @@ public sealed class ProductRepository  (PetShopContext context) : IProductReposi
         context.SaveChanges();
         return true;
     }
+    
+    public ProductResponse Update(Guid id, ProductRequest request)
+    {
+        var product = context.Products.FirstOrDefault(p => p.Id == id);
+        if (product is null)
+            throw new KeyNotFoundException("Produto não encontrado");
+
+        if (string.IsNullOrWhiteSpace(request.Name))
+            throw new InvalidOperationException("O nome do produto é obrigatório");
+
+        product.Update(request.Name, request.Description, request.Category, request.TargetSpecies, request.Price, request.ImgUrl, request.Active);
+        context.SaveChanges();
+
+        return ProductResponse.FromDomain(product);
+    }
 }

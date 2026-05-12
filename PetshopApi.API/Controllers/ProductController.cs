@@ -15,7 +15,6 @@ public class ProductController : ControllerBase
         _productRepository = productRepository;
     }
 
-    // GET api/product
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class ProductController : ControllerBase
         return Ok(products);
     }
 
-    // GET api/product/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class ProductController : ControllerBase
         return Ok(product);
     }
 
-    // GET api/product/category/{category}
     [HttpGet("category/{category}")]
     public IActionResult GetByCategory(string category)
     {
@@ -41,7 +38,6 @@ public class ProductController : ControllerBase
         return Ok(products);
     }
 
-    // GET api/product/species/{species}
     [HttpGet("species/{species}")]
     public IActionResult GetBySpecies(string species)
     {
@@ -49,7 +45,6 @@ public class ProductController : ControllerBase
         return Ok(products);
     }
 
-    // POST api/product
     [HttpPost]
     public IActionResult Create([FromBody] ProductRequest request)
     {
@@ -64,12 +59,29 @@ public class ProductController : ControllerBase
         }
     }
 
-    // DELETE api/product/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_productRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] ProductRequest request)
+    {
+        try
+        {
+            var product = _productRepository.Update(id, request);
+            return Ok(product);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

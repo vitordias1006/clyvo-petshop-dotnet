@@ -17,4 +17,18 @@ public class Query : BaseEntity
         Time = time;
         Obs = obs;
     }
+    
+    public void Update(string status, Guid petId, DateTime? time, string? obs)
+    {
+        if (string.IsNullOrWhiteSpace(status))
+            throw new InvalidOperationException("O status é obrigatório");
+
+        if (petId == Guid.Empty)
+            throw new InvalidOperationException("O pet é obrigatório");
+
+        Status = status;
+        PetId = petId;
+        Time = time;
+        Obs = obs;
+    }
 }

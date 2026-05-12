@@ -10,4 +10,5 @@ public interface IPlanDataRepository
     PlanDataResponse? GetById(Guid id);
     PlanDataResponse Create(PlanDataRequest r);
     bool ExistsById(Guid id); bool Delete(Guid id);
+    PlanDataResponse Update(Guid id, PlanDataRequest request);
 }

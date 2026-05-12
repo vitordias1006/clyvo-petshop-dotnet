@@ -18,4 +18,24 @@ public class ItemOrder  : BaseEntity
         OrderId = orderId;
         ProductId = productId;
     }
+    
+    public void Update(int quantity, decimal unitPrice, Guid orderId, Guid productId)
+    {
+        if (quantity <= 0)
+            throw new InvalidOperationException("A quantidade deve ser maior que zero");
+
+        if (unitPrice <= 0)
+            throw new InvalidOperationException("O preço unitário deve ser maior que zero");
+
+        if (orderId == Guid.Empty)
+            throw new InvalidOperationException("O pedido é obrigatório");
+
+        if (productId == Guid.Empty)
+            throw new InvalidOperationException("O produto é obrigatório");
+
+        Quantity = quantity;
+        UnitPrice = unitPrice;
+        OrderId = orderId;
+        ProductId = productId;
+    }
 }

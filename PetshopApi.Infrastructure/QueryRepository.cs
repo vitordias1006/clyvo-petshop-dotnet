@@ -66,4 +66,19 @@ public sealed class QueryRepository(PetShopContext context) : IQueryRepository
         context.SaveChanges();
         return true;
     }
+    
+    public QueryResponse Update(Guid id, QueryRequest request)
+    {
+        var query = context.Queries.FirstOrDefault(q => q.Id == id);
+        if (query is null)
+            throw new KeyNotFoundException("Consulta não encontrada");
+
+        if (string.IsNullOrWhiteSpace(request.Status))
+            throw new InvalidOperationException("O status da consulta é obrigatório");
+
+        query.Update(request.Status, request.PetId, request.Time, request.Obs);
+        context.SaveChanges();
+
+        return QueryResponse.FromDomain(query);
+    }
 }

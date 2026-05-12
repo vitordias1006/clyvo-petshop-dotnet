@@ -15,7 +15,6 @@ public class UserController : ControllerBase
         _userRepository = userRepository;
     }
 
-    // GET api/user
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class UserController : ControllerBase
         return Ok(users);
     }
 
-    // GET api/user/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class UserController : ControllerBase
         return Ok(user);
     }
 
-    // POST api/user
     [HttpPost]
     public IActionResult Create([FromBody] UserRequest request)
     {
@@ -48,12 +45,29 @@ public class UserController : ControllerBase
         }
     }
 
-    // DELETE api/user/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_userRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] UserRequest request)
+    {
+        try
+        {
+            var user = _userRepository.Update(id, request);
+            return Ok(user);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

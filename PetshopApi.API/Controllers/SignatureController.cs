@@ -15,7 +15,6 @@ public class SignatureController : ControllerBase
         _signatureRepository = signatureRepository;
     }
 
-    // GET api/signature
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class SignatureController : ControllerBase
         return Ok(signatures);
     }
 
-    // GET api/signature/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class SignatureController : ControllerBase
         return Ok(signature);
     }
 
-    // GET api/signature/user/{userId}
     [HttpGet("user/{userId:guid}")]
     public IActionResult GetByUserId(Guid userId)
     {
@@ -41,7 +38,6 @@ public class SignatureController : ControllerBase
         return Ok(signatures);
     }
 
-    // POST api/signature
     [HttpPost]
     public IActionResult Create([FromBody] SignatureRequest request)
     {
@@ -56,12 +52,29 @@ public class SignatureController : ControllerBase
         }
     }
 
-    // DELETE api/signature/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_signatureRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] SignatureRequest request)
+    {
+        try
+        {
+            var signature = _signatureRepository.Update(id, request);
+            return Ok(signature);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

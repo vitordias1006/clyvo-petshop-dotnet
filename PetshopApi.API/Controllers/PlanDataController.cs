@@ -15,7 +15,6 @@ public class PlanDataController : ControllerBase
         _planDataRepository = planDataRepository;
     }
 
-    // GET api/plandata
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -23,7 +22,6 @@ public class PlanDataController : ControllerBase
         return Ok(plans);
     }
 
-    // GET api/plandata/{id}
     [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
@@ -33,7 +31,6 @@ public class PlanDataController : ControllerBase
         return Ok(plan);
     }
 
-    // GET api/plandata/signature/{signatureId}
     [HttpGet("signature/{signatureId:guid}")]
     public IActionResult GetBySignatureId(Guid signatureId)
     {
@@ -41,7 +38,6 @@ public class PlanDataController : ControllerBase
         return Ok(plans);
     }
 
-    // GET api/plandata/active
     [HttpGet("active")]
     public IActionResult GetActive()
     {
@@ -49,7 +45,6 @@ public class PlanDataController : ControllerBase
         return Ok(plans);
     }
 
-    // POST api/plandata
     [HttpPost]
     public IActionResult Create([FromBody] PlanDataRequest request)
     {
@@ -64,12 +59,29 @@ public class PlanDataController : ControllerBase
         }
     }
 
-    // DELETE api/plandata/{id}
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         if (!_planDataRepository.Delete(id))
             return NotFound();
         return NoContent();
+    }
+    
+    [HttpPut("{id:guid}")]
+    public IActionResult Update(Guid id, [FromBody] PlanDataRequest request)
+    {
+        try
+        {
+            var plan = _planDataRepository.Update(id, request);
+            return Ok(plan);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

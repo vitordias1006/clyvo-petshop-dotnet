@@ -58,4 +58,19 @@ public sealed class SignatureRepository(PetShopContext context) : ISignatureRepo
         context.SaveChanges();
         return true;
     }
+    
+    public SignatureResponse Update(Guid id, SignatureRequest request)
+    {
+        var signature = context.Signatures.FirstOrDefault(s => s.Id == id);
+        if (signature is null)
+            throw new KeyNotFoundException("Assinatura não encontrada");
+
+        if (string.IsNullOrWhiteSpace(request.Status))
+            throw new InvalidOperationException("O status da assinatura é obrigatório");
+
+        signature.Update(request.Status, request.StartDate, request.EndDate, request.UserId);
+        context.SaveChanges();
+
+        return SignatureResponse.FromDomain(signature);
+    }
 }

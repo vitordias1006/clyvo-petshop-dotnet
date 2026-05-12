@@ -9,4 +9,5 @@ public interface IItemOrderRepository
     ItemOrderResponse? GetById(Guid id); 
     ItemOrderResponse Create(ItemOrderRequest r);
     bool ExistsById(Guid id); bool Delete(Guid id);
+    ItemOrderResponse Update(Guid id, ItemOrderRequest request);
 }

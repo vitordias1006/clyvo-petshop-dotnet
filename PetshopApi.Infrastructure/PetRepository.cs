@@ -58,4 +58,19 @@ public sealed class PetRepository(PetShopContext context) : IPetRepository
         context.SaveChanges();
         return true;
     }
+    
+    public PetResponse Update(Guid id, PetRequest request)
+    {
+        var pet = context.Pets.FirstOrDefault(p => p.Id == id);
+        if (pet is null)
+            throw new KeyNotFoundException("Pet não encontrado");
+
+        if (string.IsNullOrWhiteSpace(request.Name))
+            throw new InvalidOperationException("O nome do pet é obrigatório");
+
+        pet.Update(request.Name, request.Species, request.Race, request.BirthDate, request.Weight, request.PhotoUrl, request.UserId);
+        context.SaveChanges();
+
+        return PetResponse.FromDomain(pet);
+    }
 }
