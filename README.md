@@ -186,6 +186,29 @@ A documentação interativa está disponível via **Swagger UI** em `/swagger` q
 
 ---
 
+##  Pré-requisitos
+
+Antes de executar o projeto, certifique-se de ter instalado:
+
+| Ferramenta | Versão mínima | Link |
+|---|---|---|
+| .NET SDK | 9.0 | https://dotnet.microsoft.com/download |
+| EF Core CLI | 9.0 | `dotnet tool install --global dotnet-ef` |
+| Oracle Database | 19c+ | Acesso ao servidor Oracle (ex: `oracle.fiap.com.br`) |
+
+> **Verificando as versões instaladas:**
+> ```bash
+> dotnet --version        # deve retornar 9.x.x ou superior
+> dotnet ef --version     # deve retornar 9.x.x ou superior
+> ```
+
+> **Instalando o EF Core CLI** (caso ainda não tenha):
+> ```bash
+> dotnet tool install --global dotnet-ef
+> ```
+
+---
+
 ##  Como Executar
 
 ### 1. Clone o repositório
